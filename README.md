@@ -1,24 +1,16 @@
-# 山西医科大学 Zotero 论文参考文献样式 / Shanxi Medical University Zotero Thesis Style
+# 山西医科大学 Zotero 论文参考文献样式
 
-本仓库提供一个适用于山西医科大学论文参考文献格式的 Zotero CSL 样式，采用顺序编码制，参考文献表形如 `[1]`。
+English name: `Shanxi Medical University Zotero Thesis Style`
 
-This repository provides a Zotero CSL style for the Shanxi Medical University thesis bibliography format. It uses a numeric bibliography style with entries such as `[1]`.
+这是一个适用于山西医科大学学位论文参考文献格式的 Zotero CSL 样式，采用顺序编码制，参考文献表形如 `[1]`。
 
-## 仓库与样式命名 / Repository and Style Names
+## 仓库信息
 
-- 中文显示名: `山西医科大学 Zotero 论文参考文献样式`
-- English display name: `Shanxi Medical University Zotero Thesis Style`
-- 推荐 GitHub 仓库名 / Recommended GitHub repository name: `zotero-shanxi-medical-university-thesis-style`
-- 样式文件 / Style file: `shanxi-medical-university-thesis-numeric.csl`
+- GitHub 仓库名：`zotero-shanxi-medical-university-thesis-style`
+- 样式文件：`shanxi-medical-university-thesis-numeric.csl`
+- Zotero 样式显示名：`Shanxi Medical University Thesis Numeric / 山西医科大学学位论文参考文献样式`
 
-## 文件说明 / Included Files
-
-- `shanxi-medical-university-thesis-numeric.csl`: 可安装的 Zotero 样式 / installable Zotero style
-- `VERSION`: 当前版本号 / current release version
-- `CHANGELOG.md`: 更新记录 / version history
-- `RELEASE.md`: 发布与更新流程 / release and GitHub update steps
-
-## 安装方法 / Install in Zotero
+## 安装方法
 
 1. 下载 `shanxi-medical-university-thesis-numeric.csl`。
 2. 打开 Zotero。
@@ -27,82 +19,74 @@ This repository provides a Zotero CSL style for the Shanxi Medical University th
 5. 选择 `shanxi-medical-university-thesis-numeric.csl`。
 6. 在 Word 或 LibreOffice 中打开 `Document Preferences`，切换到这个样式。
 
-1. Download `shanxi-medical-university-thesis-numeric.csl`.
-2. Open Zotero.
-3. Go to `Edit -> Preferences -> Cite -> Styles`.
-4. Click `+`.
-5. Select `shanxi-medical-university-thesis-numeric.csl`.
-6. In Word or LibreOffice, open `Document Preferences` and switch to this style.
+## 支持的文献类型
 
-## 支持的文献类型 / Supported Reference Types
+- 著作 `[M]`
+- 期刊论文 `[J]`
+- 电子文献 `[EB/OL]`
+- 报纸文章 `[N]`
+- 学位论文 `[硕士学位论文]`、`[博士学位论文]`
+- 专利 `[P]`
+- 技术标准
+- 会议论文 `[A] ... [C]`
 
-- 著作 / Book `[M]`
-- 期刊论文 / Journal article `[J]`
-- 电子文献 / Web page or electronic resource `[EB/OL]`
-- 报纸文章 / Newspaper article `[N]`
-- 学位论文 / Thesis `[硕士学位论文]` or `[博士学位论文]`
-- 专利 / Patent `[P]`
-- 技术标准 / Standard
-- 会议论文 / Conference paper `[A] ... [C]`
+## Zotero 录入约定
 
-## 录入约定 / Important Data-Entry Rules
+- 学位论文导师：填在 `Editor`
+- 学位论文类型：在 `Type` 中填写 `硕士学位论文` 或 `博士学位论文`
+- 图书或学位论文页码：优先使用 `Page`，必要时在 `Extra` 中写 `Page: 56-60`
+- 专利国别：使用 `Jurisdiction`，必要时在 `Extra` 中写 `Jurisdiction: 中国`
+- 技术标准代号：填在 `Number`
 
-这些约定很重要，因为 Zotero 默认字段与学校格式并不完全一一对应。
+## 当前格式行为
 
-These conventions matter because Zotero fields do not fully match the school rules.
+- 参考文献表采用 `[1]` 这类数字编号
+- 参考文献表输出全部作者，不使用 `et al.`
+- 正文引用当前为普通方括号编号，不是上标
+- 字体、行距、悬挂缩进和段落间距仍需在 Word 中设置
 
-- 学位论文导师 / Thesis advisor: 填在 `Editor` / store in `Editor`
-- 学位论文类型 / Thesis type: 在 `Type` 中填写 `硕士学位论文` 或 `博士学位论文` / put `硕士学位论文` or `博士学位论文` in `Type`
-- 图书或学位论文页码 / Book or thesis page range: 优先使用 `Page`，必要时在 `Extra` 中写 `Page: 56-60` / use `Page`, or `Extra` with `Page: 56-60`
-- 专利国别 / Patent country: 使用 `Jurisdiction`，必要时在 `Extra` 中写 `Jurisdiction: 中国` / use `Jurisdiction`, or `Extra` with `Jurisdiction: 中国`
-- 技术标准代号 / Standard number: 填在 `Number` / use `Number`
+## 更新方法
 
-## 当前格式行为 / Current Formatting Behavior
+每次更新时按这个顺序处理：
 
-- 参考文献表采用 `[1]` 这类数字编号 / bibliography uses numeric labels like `[1]`
-- 参考文献表输出全部作者，不使用 `et al.` / bibliography prints all authors instead of `et al.`
-- 正文引用当前为普通方括号编号，不是上标 / in-text citations currently render as normal bracketed numbers, not superscript
-- 字体、行距、悬挂缩进和段落间距仍需在 Word 中设置 / Word font, line spacing, hanging indent, and paragraph spacing are still controlled in Word
+1. 修改 `shanxi-medical-university-thesis-numeric.csl`
+2. 更新 `VERSION`
+3. 在 `CHANGELOG.md` 顶部添加新条目
+4. 执行 `git add .`
+5. 执行 `git commit -m "描述这次修改"`
+6. 执行 `git push`
 
-## 上传到 GitHub / Publish to GitHub
-
-建议把这个目录作为单独仓库发布，不要把整个 `Playground` 目录一起上传。
-
-Recommended workflow: publish this folder as a separate repository instead of uploading the whole `Playground` directory.
+如果要发布正式版本，再额外执行：
 
 ```powershell
-cd C:\Users\anyin\Documents\Playground\zotero-shanxi-medical-university-thesis-style
-git init
-git add .
-git commit -m "Initial release"
-git branch -M main
-git remote add origin https://github.com/<your-user>/zotero-shanxi-medical-university-thesis-style.git
-git push -u origin main
-```
-
-## 更新新版本 / Update to a New Version
-
-1. 修改 `.csl` 文件 / edit the `.csl` file.
-2. 更新 `VERSION` / update `VERSION`.
-3. 在 `CHANGELOG.md` 顶部添加新条目 / add a new entry at the top of `CHANGELOG.md`.
-4. 提交修改 / commit the changes.
-5. 创建并推送标签 / create and push a tag.
-6. 在 GitHub 上发布 Release / draft a GitHub Release.
-
-示例 / Example:
-
-```powershell
-git add .
-git commit -m "Fix thesis and patent formatting"
 git tag v0.1.1
-git push
 git push origin v0.1.1
 ```
 
-详细步骤见 / More detail: `RELEASE.md`.
+更详细的发布步骤见 `RELEASE.md`。
 
-## 许可证 / License
+## 文件说明
+
+- `shanxi-medical-university-thesis-numeric.csl`：可安装的 Zotero 样式
+- `VERSION`：当前版本号
+- `CHANGELOG.md`：更新记录
+- `RELEASE.md`：发布流程说明
+- `LICENSE`：许可证
+
+## English Summary
+
+This repository contains a Zotero CSL style for the Shanxi Medical University thesis bibliography format.
+
+- Style file: `shanxi-medical-university-thesis-numeric.csl`
+- Citation style: numeric bibliography such as `[1]`
+- Supported items: book, journal article, web page, newspaper article, thesis, patent, standard, and conference paper
+- Thesis advisor should be stored in `Editor`
+- Thesis type should be stored in `Type`
+- Patent country should be stored in `Jurisdiction`
+- Standard number should be stored in `Number`
+
+See `RELEASE.md` for the release workflow and `CHANGELOG.md` for version history.
+
+## 许可证
 
 本样式按 `CC BY-SA 3.0` 分发，详见 `LICENSE`。
-
-This style is distributed under `CC BY-SA 3.0`. See `LICENSE`.
