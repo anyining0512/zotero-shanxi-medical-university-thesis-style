@@ -67,14 +67,14 @@ Editor: 姓 || 名
 例如：
 
 ```text
-Editor: 王 || 红英
+Editor: 张 || 三
 ```
 
 如果有多位导师，一人一行：
 
 ```text
-Editor: 王 || 红英
-Editor: 李 || 明
+Editor: 张 || 三
+Editor: 李 || 四
 ```
 
 页码规则：
