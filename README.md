@@ -2,22 +2,29 @@
 
 English name: `Shanxi Medical University Zotero Thesis Style`
 
-这是一个适用于山西医科大学学位论文参考文献格式的 Zotero CSL 样式，采用顺序编码制，参考文献表形如 `[1]`。
+这是一个面向山西医科大学学位论文参考文献要求的 Zotero CSL 样式。它以 Zotero 常用的 `GB/T 7714-2015` 数字顺序样式为模板，但按学校当前使用习惯做了定制，适合在中文 Zotero 界面和 Word 联动环境中直接使用。
+
+当前样式的主要行为如下：
+
+- 文末参考文献采用数字顺序编码，如 `[1]`
+- 正文引用采用上角标数字编号
+- 默认输出全部作者，不自动缩写为“等”或 `et al.`
+- 已支持著作、期刊论文、电子文献、报纸文章、学位论文、专利、技术标准、会议论文
 
 ## 仓库信息
 
 - GitHub 仓库名：`zotero-shanxi-medical-university-thesis-style`
 - 样式文件：`shanxi-medical-university-thesis-numeric.csl`
-- Zotero 样式显示名：`Shanxi Medical University Thesis Numeric / 山西医科大学学位论文参考文献样式`
+- Zotero 中的样式显示名：`Shanxi Medical University Thesis Numeric / 山西医科大学学位论文参考文献样式`
 
 ## 安装方法
 
-1. 下载 `shanxi-medical-university-thesis-numeric.csl`。
-2. 打开 Zotero。
-3. 进入 `Edit -> Preferences -> Cite -> Styles`。
-4. 点击 `+`。
-5. 选择 `shanxi-medical-university-thesis-numeric.csl`。
-6. 在 Word 或 LibreOffice 中打开 `Document Preferences`，切换到这个样式。
+1. 下载 `shanxi-medical-university-thesis-numeric.csl`
+2. 打开 Zotero
+3. 进入 `编辑 -> 设置 -> 引用 -> 样式`
+4. 点击 `+`
+5. 选择 `shanxi-medical-university-thesis-numeric.csl`
+6. 在 Word 或 LibreOffice 中打开 `文档首选项 / Document Preferences`，切换到该样式
 
 ## 支持的文献类型
 
@@ -30,33 +37,168 @@ English name: `Shanxi Medical University Zotero Thesis Style`
 - 技术标准
 - 会议论文 `[A] ... [C]`
 
-## Zotero 录入约定
+## 中文 Zotero 录入说明
 
-- 学位论文导师：在 `其他` 中填写 `Editor: 姓 || 名`
-- 学位论文类型：填写在 `论文类型`
-- 图书页码：优先使用 `Page`，必要时在 `其他` 中写 `Page: 56-60`
-- 专利国别：填写在 `Jurisdiction`
-- 技术标准代号：填在 `Number`
+下面的字段名称按中文 Zotero 界面来写。少数需要写入固定键名的地方，会同时保留英文键名。
 
-## 当前格式行为
+### 1. 期刊论文
 
-- 参考文献表采用 `[1]` 这类数字编号
-- 参考文献表输出全部作者，不使用 `et al.`
-- 正文引用采用上角标数字编号
-- 字体、行距、悬挂缩进和段落间距仍需在 Word 中设置
+- 条目类型：`期刊文章`
+- 重点字段：`标题`、`作者`、`刊名`、`日期`、`卷`、`期`、`页码`
+- 说明：如果文献只有 article number，例如 `10986`、`132927`、`e3690`，按原始期刊信息录入即可，不必强行改成传统起止页码
+
+### 2. 著作
+
+- 条目类型：`图书`
+- 重点字段：`标题`、`作者`、`出版地`、`出版社`、`日期`
+- 如学校要求该书目带页码，可在 `页码` 中直接填写，或在 `其他` 中补写 `Page: 56-60`
+
+### 3. 学位论文
+
+- 条目类型：`学位论文`
+- 重点字段：`标题`、`作者`、`论文类型`、`大学`、`地点`、`日期`
+- 导师不要填在 `贡献者`
+- 导师请在 `其他` 中按下面格式填写：
+
+```text
+Editor: 姓 || 名
+```
+
+例如：
+
+```text
+Editor: 王 || 红英
+```
+
+如果有多位导师，一人一行：
+
+```text
+Editor: 王 || 红英
+Editor: 李 || 明
+```
+
+页码规则：
+
+- 如果 `页码` 已填写，样式优先输出 `页码`
+- 如果 `页码` 为空，但 `总页数` 已填写，样式会尝试输出为 `1-总页数`
+- 例如 `总页数 = 52` 时，参考文献会尽量显示为 `1-52`
+
+### 4. 会议论文
+
+- 条目类型：`会议论文`
+- 重点字段：`标题`、`作者`、`会议录/论文集名称`、`日期`、`页码`
+- 当前样式会输出：
+
+```text
+作者. 题名 [A]. 论文集名称 [C], 年份: 页码.
+```
+
+- 如果未填写 `页码`，样式不会自动补页码
+
+### 5. 电子文献
+
+- 条目类型：`网页` 或其他网络文献对应类型
+- 重点字段：`标题`、`作者`、`URL`、`日期`、`访问日期`
+- 当前样式按学校要求输出 `[EB/OL]`
+
+### 6. 专利
+
+- 条目类型：`专利`
+- 重点字段：`标题`、`作者`、`专利号`、`日期`
+- 国别或地区请填写在 `专利国别（Jurisdiction）`
+
+### 7. 技术标准
+
+- 条目类型：`标准`
+- 重点字段：`作者/发布单位`、`标题`、`出版地`、`出版社`、`日期`
+- 标准代号请填写在 `标准代号（Number）`
+
+## 与 Zotero 常用 GB/T 7714 数字顺序样式的主要区别
+
+本样式不是完全脱离 GB/T 7714 另起炉灶，而是在其基础上，按山西医科大学当前这套论文参考文献写法做了定制。下面列出最重要的区别。
+
+| 项目 | 常用 Zotero `GB/T 7714-2015 (numeric)` 样式 | 本样式 |
+|---|---|---|
+| 正文引用 | 常见用法是方括号数字编号，具体显示形式依赖所用 GB 变体 | 固定为上角标数字编号 |
+| 作者显示 | 常按 GB 规则在作者较多时缩写为“等”或 `et al.` | 默认输出全部作者 |
+| 学位论文作者区 | 通常只直接输出作者 | 固定按“研究生; 导师”输出，导师从 `其他` 中的 `Editor: 姓 || 名` 读取 |
+| 学位论文类型 | 依赖 `genre/type`，但不一定贴合中文学校模板 | 明确按 `论文类型` 输出，如 `[硕士学位论文]`、`[博士学位论文]` |
+| 学位论文页码 | GB 样式通常不会主动把 `总页数` 转成 `1-总页数` | 优先用 `页码`；若未填 `页码`，会尝试把 `总页数` 输出为 `1-总页数` |
+| 会议论文 | GB 规则支持会议文献，但不同变体输出细节不完全一致 | 明确输出 `题名 [A]. 论文集名 [C], 年份: 页码.` |
+| 电子文献 | GB 变体可能在网络资源上有不同细节处理 | 当前样式固定走学校要求的 `[EB/OL]` 写法 |
+| 标准条目 | GB 变体往往按标准自身规则输出 | 当前样式按学校给出的“发布单位. 标准代号. 标准名称. 出版地: 出版者, 出版日期.”来排 |
+| 专利条目 | GB 变体通常按专利类型输出 | 当前样式要求国别来自 `Jurisdiction`，并固定按学校给出的顺序排版 |
+| 标点与字段顺序 | 更强调通用 GB/T 7714 兼容 | 更强调贴近学校示例，而不是追求所有 GB 边角情况完全一致 |
+
+## 适合用这个样式的情况
+
+- 你写的是山西医科大学学位论文
+- 你希望正文引用为上角标数字编号
+- 你希望参考文献表输出全部作者
+- 你愿意按本 README 的字段规则录入学位论文、会议论文、专利和标准
+
+## 不适合直接套用的情况
+
+- 你必须严格提交为通用 `GB/T 7714-2015`，而不是学校定制版
+- 你的学院或导师要求使用另一套完全不同的参考文献模板
+- 你不打算整理 Zotero 元数据，想让样式自动修复所有导入问题
+
+## 使用提醒：建议先清洗 Zotero 元数据
+
+CSL 负责“怎么排版”，不负责自动修复条目里的脏数据。  
+如果原始元数据不干净，最终参考文献也会跟着不整齐。
+
+常见问题包括：
+
+- 从 PDF、PubMed、Springer、CNKI 等来源导入后，标题里混入特殊连字符，如 `‐` 而不是普通键盘 `-`
+- 同一期刊名称写法不一致，例如 `Ultrasound in Obstetrics & Gynecology` 和 `Ultrasound in Obstetrics and Gynecology`
+- 会议论文被误录成 `图书` 或未知类型
+- 期刊条目只有年份，没有卷、期、页码
+- 学位论文导师没有写到样式能读取的位置
+
+### 这些问题不能靠 CSL 直接统一修复
+
+CSL 可以控制：
+
+- 作者、题名、刊名、年份、页码的排列顺序
+- 标点和文献类型标识
+- 正文引用和文末参考文献的显示方式
+
+CSL 不擅长稳定处理：
+
+- 把标题里的特殊字符批量替换成标准字符
+- 自动统一同一期刊的不同写法
+- 自动判断某条文献到底应归为期刊、会议论文还是预印本
+- 自动补全缺失的卷、期、页码
+
+### 建议优先检查的字段
+
+- `条目类型` 是否正确
+- `标题` 中是否有异常空格、特殊连字符、乱码
+- `刊名` 是否统一
+- `卷`、`期`、`页码` 是否完整
+- 学位论文导师是否已在 `其他` 中写为 `Editor: 姓 || 名`
+- `论文类型` 是否规范填写为 `硕士学位论文` 或 `博士学位论文`
+- 专利国别是否已写入 `Jurisdiction`
+- 标准代号是否已写入 `Number`
 
 ## English Summary
 
-This repository contains a Zotero CSL style for the Shanxi Medical University thesis bibliography format. It uses a numeric bibliography style such as `[1]` and supports books, journal articles, web pages, newspaper articles, theses, patents, standards, and conference papers.
+This repository contains a Zotero CSL style customized for the Shanxi Medical University thesis bibliography format.
 
-- Thesis advisor should be stored in `Extra` as `Editor: Family || Given`
-- Thesis type should be stored in the thesis type field
-- Patent country should be stored in `Jurisdiction`
-- Standard number should be stored in `Number`
+Key differences from the common GB/T 7714 numeric styles:
+
+- superscript in-text citations
+- all authors are printed
+- thesis entries render as `student; advisor`
+- thesis advisors should be stored in `Extra` as `Editor: Family || Given`
+- thesis pages prefer `Page` and can fall back to `1-last page` from total pages
+- conference papers render with page ranges
 
 ## 维护说明
 
-版本记录见 `CHANGELOG.md`，发布流程见 `RELEASE.md`。
+- 版本记录见 `CHANGELOG.md`
+- 发布流程见 `RELEASE.md`
 
 ## 许可证
 
