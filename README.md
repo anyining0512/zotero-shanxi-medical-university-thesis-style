@@ -32,22 +32,27 @@ English name: `Shanxi Medical University Zotero Thesis Style`
 
 ## Zotero 录入约定
 
-- 学位论文导师：填在 `Editor`
-- 学位论文类型：在 `Type` 中填写 `硕士学位论文` 或 `博士学位论文`
-- 图书或学位论文页码：优先使用 `Page`，必要时在 `Extra` 中写 `Page: 56-60`
-- 专利国别：使用 `Jurisdiction`，必要时在 `Extra` 中写 `Jurisdiction: 中国`
+- 学位论文导师：在 `其他` 中填写 `Editor: 姓 || 名`
+- 学位论文类型：填写在 `论文类型`
+- 图书页码：优先使用 `Page`，必要时在 `其他` 中写 `Page: 56-60`
+- 专利国别：填写在 `Jurisdiction`
 - 技术标准代号：填在 `Number`
 
 ## 当前格式行为
 
 - 参考文献表采用 `[1]` 这类数字编号
 - 参考文献表输出全部作者，不使用 `et al.`
-- 正文引用当前为普通方括号编号，不是上标
+- 正文引用采用上角标数字编号
 - 字体、行距、悬挂缩进和段落间距仍需在 Word 中设置
 
 ## English Summary
 
 This repository contains a Zotero CSL style for the Shanxi Medical University thesis bibliography format. It uses a numeric bibliography style such as `[1]` and supports books, journal articles, web pages, newspaper articles, theses, patents, standards, and conference papers.
+
+- Thesis advisor should be stored in `Extra` as `Editor: Family || Given`
+- Thesis type should be stored in the thesis type field
+- Patent country should be stored in `Jurisdiction`
+- Standard number should be stored in `Number`
 
 ## 维护说明
 
