@@ -45,47 +45,13 @@ English name: `Shanxi Medical University Zotero Thesis Style`
 - 正文引用当前为普通方括号编号，不是上标
 - 字体、行距、悬挂缩进和段落间距仍需在 Word 中设置
 
-## 更新方法
-
-每次更新时按这个顺序处理：
-
-1. 修改 `shanxi-medical-university-thesis-numeric.csl`
-2. 更新 `VERSION`
-3. 在 `CHANGELOG.md` 顶部添加新条目
-4. 执行 `git add .`
-5. 执行 `git commit -m "描述这次修改"`
-6. 执行 `git push`
-
-如果要发布正式版本，再额外执行：
-
-```powershell
-git tag v0.1.1
-git push origin v0.1.1
-```
-
-更详细的发布步骤见 `RELEASE.md`。
-
-## 文件说明
-
-- `shanxi-medical-university-thesis-numeric.csl`：可安装的 Zotero 样式
-- `VERSION`：当前版本号
-- `CHANGELOG.md`：更新记录
-- `RELEASE.md`：发布流程说明
-- `LICENSE`：许可证
-
 ## English Summary
 
-This repository contains a Zotero CSL style for the Shanxi Medical University thesis bibliography format.
+This repository contains a Zotero CSL style for the Shanxi Medical University thesis bibliography format. It uses a numeric bibliography style such as `[1]` and supports books, journal articles, web pages, newspaper articles, theses, patents, standards, and conference papers.
 
-- Style file: `shanxi-medical-university-thesis-numeric.csl`
-- Citation style: numeric bibliography such as `[1]`
-- Supported items: book, journal article, web page, newspaper article, thesis, patent, standard, and conference paper
-- Thesis advisor should be stored in `Editor`
-- Thesis type should be stored in `Type`
-- Patent country should be stored in `Jurisdiction`
-- Standard number should be stored in `Number`
+## 维护说明
 
-See `RELEASE.md` for the release workflow and `CHANGELOG.md` for version history.
+版本记录见 `CHANGELOG.md`，发布流程见 `RELEASE.md`。
 
 ## 许可证
 
