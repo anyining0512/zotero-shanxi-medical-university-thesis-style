@@ -201,6 +201,30 @@
     </group>
   </macro>
 
+  <macro name="thesis-page">
+    <choose>
+      <if variable="page">
+        <text variable="page"/>
+      </if>
+      <else-if variable="number-of-pages">
+        <text variable="number-of-pages" prefix="1-"/>
+      </else-if>
+    </choose>
+  </macro>
+
+  <macro name="thesis-publisher-info">
+    <group delimiter=": ">
+      <group delimiter=", ">
+        <group delimiter=": ">
+          <text variable="publisher-place"/>
+          <text variable="publisher"/>
+        </group>
+        <text macro="issued-year"/>
+      </group>
+      <text macro="thesis-page"/>
+    </group>
+  </macro>
+
   <macro name="issued-year">
     <choose>
       <if variable="issued">
@@ -292,7 +316,7 @@
     <group delimiter=". ">
       <text macro="thesis-contributors"/>
       <text macro="title-with-type"/>
-      <text macro="publisher-info"/>
+      <text macro="thesis-publisher-info"/>
     </group>
   </macro>
 
@@ -318,9 +342,12 @@
         <text variable="title"/>
         <text value="[A]"/>
       </group>
-      <group delimiter=", ">
-        <text macro="conference-container"/>
-        <text macro="issued-year"/>
+      <group delimiter=": ">
+        <group delimiter=", ">
+          <text macro="conference-container"/>
+          <text macro="issued-year"/>
+        </group>
+        <text variable="page"/>
       </group>
     </group>
   </macro>
